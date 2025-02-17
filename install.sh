@@ -4,6 +4,12 @@ set -e
 # Install packages
 bash packages/install_packages.sh
 
+# Check zsh is installed
+if ! command -v zsh &> /dev/null; then
+    echo "zsh is not installed. Please install zsh first."
+    exit 1
+fi
+
 # Install oh-my-zsh
 bash zsh/install-omz.sh
 
@@ -21,6 +27,7 @@ fi
 # Copy dotfiles
 
 cp vim/vimrc ~/.vimrc
-cp zsh/zshrc ~/.zshrc
+cp zsh/p10k.zsh ~/.p10k.zsh
 cp tmux/tmux.conf ~/.tmux.conf
 
+chsh -s `which zsh`

@@ -27,7 +27,13 @@ set -e
 # Clone the repository
 cd ~
 
-git clone --depth 1 --branch $GIT_BRANCH $GIT_REPO ~/.dotfiles
+# Check if the dotfiles directory already exists
+if [ -d ~/.dotfiles ]; then
+    echo "~/.dotfiles directory already exists. Updating..."
+    cd ~/.dotfiles && git pull
+else
+    git clone --depth 1 --branch $GIT_BRANCH $GIT_REPO ~/.dotfiles
+fi
 
 cd ~/.dotfiles && bash install.sh
 
