@@ -21,7 +21,3 @@ sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/g' ${HOME}/.zsh
 sed -i -e '/source \$ZSH\/oh-my-zsh.sh/i export ZSH_COMPDUMP=\$ZSH\/cache\/.zcompdump-\$HOST' ${HOME}/.zshrc
 # Configure the default ZSH configuration for new users.
 echo "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" >> ${HOME}/.zshrc
-cp ${HOME}/.zshrc /etc/skel/
-cp ${ZSH_CUSTOM}/themes/powerlevel10k/config/p10k-classic.zsh ${HOME}/.p10k.zsh
-cp ${HOME}/.p10k.zsh /etc/skel/
-cp -r ${HOME}/.oh-my-zsh /etc/skel/
