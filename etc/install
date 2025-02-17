@@ -21,7 +21,6 @@ GIT_REPO="https://github.com/mino-park7/dotfiles.git"
 GIT_BRANCH="main"
 
 
-set -x
 set -e
 
 # Clone the repository
