@@ -25,7 +25,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -70,31 +70,30 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git                     # git 명령어 단축키 및 프롬프트 정보
-        docker                  # docker 명령어 자동완성
-        kubectl                 # kubectl 명령어 자동완성
-        extract                 # 압축 파일 풀기
-        thefuck                 # 명령어 오류 수정
-        autojump                # 디렉토리 이동 자동완성
-        jsontools               # json 파일 편집
-        colored-man-pages       # man 페이지 색상 표시
-        debian                  # debian 명령어 자동완성
-        aws                     # aws 명령어 자동완성
-        colorize                # 명령어 색상 표시
-        common-aliases          # 일반적인 명령어 단축키
-        helm                    # helm 명령어 자동완성
-        iterm2                  # iterm2 명령어 자동완성
-        kube-ps1                # kube-ps1 명령어 자동완성
-        aliases                 # 명령어 단축키
-        pre-commit             # pre-commit 명령어 자동완성
-        tmux                    # tmux 명령어 자동완성)
-        # 외부 플러그인
-        zsh-autosuggestions         # 명령어 자동 추천
-        zsh-syntax-highlighting      # 명령어 구문 강조
-        zsh-completions             # 추가 자동완성
-        zsh-history-substring-search # 명령어 검색 기능
-        zsh-you-should-use     # 명령어 추천 
-    )
+plugins=(git          # git 명령어 단축키 및 프롬프트 정보
+    docker            # docker 명령어 자동완성
+    kubectl           # kubectl 명령어 자동완성
+    extract           # 압축 파일 풀기
+    thefuck           # 명령어 오류 수정
+    autojump          # 디렉토리 이동 자동완성
+    jsontools         # json 파일 편집
+    colored-man-pages # man 페이지 색상 표시
+    debian            # debian 명령어 자동완성
+    aws               # aws 명령어 자동완성
+    colorize          # 명령어 색상 표시
+    common-aliases    # 일반적인 명령어 단축키
+    helm              # helm 명령어 자동완성
+    iterm2            # iterm2 명령어 자동완성
+    kube-ps1          # kube-ps1 명령어 자동완성
+    aliases           # 명령어 단축키
+    tmux              # tmux 명령어 자동완성)
+    # 외부 플러그인
+    zsh-autosuggestions          # 명령어 자동 추천
+    zsh-syntax-highlighting      # 명령어 구문 강조
+    zsh-completions              # 추가 자동완성
+    zsh-history-substring-search # 명령어 검색 기능
+    zsh-you-should-use           # 명령어 추천
+)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -127,3 +126,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.devconfig ]] || source ~/.devconfig
