@@ -13,15 +13,15 @@ fi
 # Install oh-my-zsh
 bash zsh/install-omz.sh
 
-# backup dotfiles
+# backup dotfiles with timestamp
 if [ -f ~/.zshrc ]; then
-    mv ~/.zshrc ~/.zshrc.bak
+    mv ~/.zshrc ~/.zshrc.bak.$(date +%Y%m%d%H%M%S)
 fi
 if [ -f ~/.vimrc ]; then
-    mv ~/.vimrc ~/.vimrc.bak
+    mv ~/.vimrc ~/.vimrc.bak.$(date +%Y%m%d%H%M%S)
 fi
 if [ -f ~/.tmux.conf ]; then
-    mv ~/.tmux.conf ~/.tmux.conf.bak
+    mv ~/.tmux.conf ~/.tmux.conf.bak.$(date +%Y%m%d%H%M%S)
 fi
 
 # Copy dotfiles
