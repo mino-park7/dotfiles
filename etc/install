@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Usage:
+# curl -fsSL https://mino-park7.github.io/dotfiles/etc/install | bash
+
+cat <<EOF
+   @mino-park7's            ███████╗██╗██╗     ███████╗███████╗
+   ██████╗  █████╗ ████████╗██╔════╝██║██║     ██╔════╝██╔════╝
+   ██╔══██╗██╔══██╗╚══██╔══╝█████╗  ██║██║     █████╗  ███████╗
+   ██║  ██║██║  ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
+   ██████╔╝╚█████╔╝   ██║   ██║     ██║███████╗███████╗███████║
+   ╚═════╝  ╚═════╝   ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
+EOF
+
+# Check minimal dependencies
+if ! command -v git &> /dev/null; then echo "ERROR: git not found. (Try $APT install git)"; exit; fi
+if ! command -v curl &> /dev/null; then echo "ERROR: curl not found. (Try $APT install curl)"; exit; fi
+if ! command -v wget &> /dev/null; then echo "ERROR: wget not found. (Try $APT install wget)"; exit; fi
+
+GIT_REPO="https://github.com/mino-park7/dotfiles.git"
+GIT_BRANCH="main"
+
+
+set -x
+set -e
+
+# Clone the repository
+cd ~
+
+git clone --depth 1 --branch $GIT_BRANCH $GIT_REPO ~/.dotfiles
+
+cd ~/.dotfiles && bash install.sh
+
+echo "All Done!"

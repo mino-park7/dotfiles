@@ -1,0 +1,61 @@
+" 기본 설정
+set nocompatible                " vi 호환성 해제
+syntax on                       " 구문 강조
+set number                      " 줄 번호 표시
+set relativenumber             " 상대적 줄 번호 표시
+set encoding=utf-8             " UTF-8 인코딩 사용
+set fileencoding=utf-8         " 파일 저장 인코딩
+set showmatch                  " 괄호 매칭 표시
+set cursorline                 " 현재 줄 강조
+set mouse=a                    " 마우스 지원
+
+" 들여쓰기 설정
+set autoindent                 " 자동 들여쓰기
+set smartindent                " 스마트 들여쓰기
+set tabstop=4                  " 탭 크기
+set shiftwidth=4               " 자동 들여쓰기 크기
+set expandtab                  " 탭을 스페이스로 변환
+set softtabstop=4             " 소프트 탭 크기
+
+" 검색 설정
+set hlsearch                   " 검색어 하이라이팅
+set incsearch                  " 증분 검색
+set ignorecase                 " 검색 시 대소문자 무시
+set smartcase                  " 대문자 포함시 대소문자 구분
+
+" 편의 기능
+set ruler                      " 커서 위치 표시
+set showcmd                    " 명령어 표시
+set wildmenu                   " 명령어 자동완성
+set backspace=indent,eol,start " 백스페이스 동작 설정
+set clipboard=unnamed          " 시스템 클립보드 사용
+set history=1000              " 명령어 기록 개수
+set undolevels=1000           " 되돌리기 레벨
+set title                     " 창 제목 표시
+
+" 시각적 보조
+set list                      " 특수문자 표시
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " 특수문자 표시 방법
+set wrap                      " 자동 줄바꿈
+set linebreak                 " 단어 단위 줄바꿈
+set scrolloff=3               " 스크롤 여백
+
+" 상태바 설정
+set laststatus=2              " 항상 상태바 표시
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+
+" 백업 파일 관리
+set nobackup                  " 백업 파일 생성 안 함
+set noswapfile               " 스왑 파일 생성 안 함
+
+" 컬러 스킴 설정
+set background=dark           " 어두운 배경
+colorscheme desert           " 기본 컬러 스킴 사용
+
+" 키 매핑
+nnoremap <space> :
+inoremap jk <esc>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l 

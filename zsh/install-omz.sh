@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-apt-get install zsh -y
+
 # Install oh-my-zsh.
 0>/dev/null sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
@@ -11,7 +11,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM}"/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-history-substring-search "${ZSH_CUSTOM}"/plugins/zsh-history-substring-search
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
-apt install thefuck autojump -y
 sed -i 's/^plugins=.*/plugins=(git\n extract\n thefuck\n autojump\n jsontools\n colored-man-pages\n zsh-autosuggestions\n zsh-syntax-highlighting\n zsh-history-substring-search\n you-should-use\n nvm\n debian)/g' ${HOME}/.zshrc
 # Enable nvm plugin feature to automatically read `.nvmrc` to toggle node version.
 sed -i "1s/^/zstyle ':omz:plugins:nvm' autoload yes\n/" ${HOME}/.zshrc
