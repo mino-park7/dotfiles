@@ -1,5 +1,5 @@
 # Define packages to install
-PACKAGES="zsh git curl wget autojump thefuck"
+PACKAGES="zsh git curl wget autojump thefuck vim"
 
 # Function to check if user has sudo privileges
 check_sudo() {
@@ -19,7 +19,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         if check_sudo; then
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         else
-            exit 1
+            exit 0
         fi
     fi
     
@@ -30,7 +30,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Check if user has sudo privileges
     if ! check_sudo; then
-        exit 1
+        exit 0
     fi
 
     # Check Linux distribution
