@@ -14,6 +14,9 @@ fi
 bash zsh/install-omz.sh
 
 # backup dotfiles with timestamp
+if [ -f ~/.p10k.zsh ]; then
+    mv ~/.p10k.zsh ~/.p10k.zsh.bak.$(date +%Y%m%d%H%M%S)
+fi
 if [ -f ~/.vimrc ]; then
     mv ~/.vimrc ~/.vimrc.bak.$(date +%Y%m%d%H%M%S)
 fi
