@@ -14,9 +14,6 @@ fi
 bash zsh/install-omz.sh
 
 # backup dotfiles with timestamp
-if [ -f ~/.zshrc ]; then
-    mv ~/.zshrc ~/.zshrc.bak.$(date +%Y%m%d%H%M%S)
-fi
 if [ -f ~/.vimrc ]; then
     mv ~/.vimrc ~/.vimrc.bak.$(date +%Y%m%d%H%M%S)
 fi
@@ -30,4 +27,5 @@ cp vim/vimrc ~/.vimrc
 cp zsh/p10k.zsh ~/.p10k.zsh
 cp tmux/tmux.conf ~/.tmux.conf
 
-chsh -s `which zsh`
+# Guide to change shell to zsh
+echo "Please change shell to zsh by running 'chsh -s $(which zsh)' and then restart your terminal."
