@@ -1,5 +1,5 @@
 # Define packages to install
-PACKAGES="zsh git curl wget autojump thefuck vim"
+PACKAGES="zsh git curl wget autojump thefuck vim tmux"
 
 # Function to check if user has sudo privileges
 check_sudo() {
