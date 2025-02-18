@@ -92,7 +92,7 @@ plugins=(git          # git 명령어 단축키 및 프롬프트 정보
     zsh-syntax-highlighting      # 명령어 구문 강조
     zsh-completions              # 추가 자동완성
     zsh-history-substring-search # 명령어 검색 기능
-    zsh-you-should-use           # 명령어 추천
+    you-should-use           # 명령어 추천
 )
 source $ZSH/oh-my-zsh.sh
 
