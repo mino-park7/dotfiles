@@ -29,6 +29,7 @@ install_zsh_plugins() {
         fi
     done < "$(dirname "$0")/plugin_list.txt"
     
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM}"/themes/powerlevel10k
     echo "zsh 플러그인 설치 완료"
 }
 
