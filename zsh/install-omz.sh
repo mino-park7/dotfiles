@@ -16,6 +16,11 @@ if [ ! -d "${ZSH_CUSTOM}"/themes/powerlevel10k ]; then
 fi
 # Move ".zcompdump-*" file to "$ZSH/cache" directory.
 sed -i -e '/source \$ZSH\/oh-my-zsh.sh/i export ZSH_COMPDUMP=\$ZSH\/cache\/.zcompdump-\$HOST' ${HOME}/.zshrc
-# Configure the default ZSH configuration for new users.
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all
 
 echo "oh-my-zsh installation and configuration completed."
+
+

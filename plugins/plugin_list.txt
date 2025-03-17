@@ -17,6 +17,7 @@ kube-ps1                # kube-ps1 명령어 자동완성
 aliases                 # 명령어 단축키
 pre-commit             # pre-commit 명령어 자동완성
 tmux                    # tmux 명령어 자동완성
+fzf                     # fzf
 
 # 외부 플러그인
 zsh-users/zsh-autosuggestions         # 명령어 자동 추천
