@@ -7,9 +7,11 @@ if [ -d ~/.oh-my-zsh ]; then
     exit 0
 else
     echo "oh-my-zsh is not installed. Installing..."
-    0>/dev/null sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sh 0>/dev/null -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-
+if [[ -z "${ZSH_CUSTOM}" ]]; then
+    ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+fi
 # Install powerlevel10k and configure it.
 if [ ! -d "${ZSH_CUSTOM}"/themes/powerlevel10k ]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM}"/themes/powerlevel10k
@@ -22,5 +24,3 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
 echo "oh-my-zsh installation and configuration completed."
-
-

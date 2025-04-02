@@ -26,15 +26,15 @@ fi
 # Install oh-my-zsh
 bash zsh/install-omz.sh
 
-# Copy dotfiles
+# Link dotfiles
 
-cp vim/vimrc ~/.vimrc
-cp zsh/p10k.zsh ~/.p10k.zsh
-cp tmux/tmux.conf ~/.tmux.conf
+ln -s vim/vimrc ~/.vimrc
+ln -s zsh/p10k.zsh ~/.p10k.zsh
+ln -s tmux/tmux.conf ~/.tmux.conf
 
 # Install plugins
 bash plugins/install_plugins.sh
-cp zsh/zshrc ~/.zshrc
+ln -s zsh/zshrc ~/.zshrc
 
 # Guide to change shell to zsh
 echo "Please change shell to zsh by running 'chsh -s $(which zsh)' and then restart your terminal."
