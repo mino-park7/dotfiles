@@ -28,13 +28,13 @@ bash zsh/install-omz.sh
 
 # Link dotfiles
 
-ln -s vim/vimrc ~/.vimrc
-ln -s zsh/p10k.zsh ~/.p10k.zsh
-ln -s tmux/tmux.conf ~/.tmux.conf
+ln -s ${HOME}/.dotfiles/vim/vimrc ~/.vimrc
+ln -s ${HOME}/.dotfiles/zsh/p10k.zsh ~/.p10k.zsh
+ln -s ${HOME}/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 # Install plugins
 bash plugins/install_plugins.sh
-ln -s zsh/zshrc ~/.zshrc
+ln -s ${HOME}/.dotfiles/zsh/zshrc ~/.zshrc
 
 # Guide to change shell to zsh
 echo "Please change shell to zsh by running 'chsh -s $(which zsh)' and then restart your terminal."

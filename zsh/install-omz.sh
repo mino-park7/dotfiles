@@ -9,6 +9,7 @@ else
     echo "oh-my-zsh is not installed. Installing..."
     sh 0>/dev/null -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+source ~/.oh-my-zsh/oh-my-zsh.sh
 if [[ -z "${ZSH_CUSTOM}" ]]; then
     ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 fi
