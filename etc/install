@@ -37,7 +37,7 @@ cd ~
 # Check if the dotfiles directory already exists
 if [ -d ~/.dotfiles ]; then
     echo "~/.dotfiles directory already exists. Updating..."
-    cd ~/.dotfiles && git stash && git pull && git stash pop
+    cd ~/.dotfiles && git stash | true && git pull && git stash pop | true
 else
     git clone --depth 1 --branch $GIT_BRANCH $GIT_REPO ~/.dotfiles
 fi
