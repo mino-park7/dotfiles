@@ -125,6 +125,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [[ ! -f ~/.devconfig ]] || source ~/.devconfig
+# ~/.zshrc — Cursor Agent가 실행될 때 Powerlevel10k 비활성화
+if [[ -n "$CURSOR_AGENT" ]]; then
+  # 호환성을 높이기 위해 테마 초기화를 건너뜀
+else
+  [[ -r ~/.p10k.zsh ]] && source ~/.p10k.zsh
+fi
