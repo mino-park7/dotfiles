@@ -10,14 +10,52 @@
 curl -fsSL https://mino-park7.github.io/dotfiles/etc/install | bash
 ```
 
+## 구성
+
+```
+dotfiles/
+├── aliases/          # 커스텀 쉘 별칭
+├── claude/           # Claude Code 설정 (settings, skills, plugins)
+├── packages/         # 시스템 패키지 설치 스크립트
+├── plugins/          # zsh/vim/tmux 플러그인 설치
+├── tmux/             # tmux 설정 (tmux.conf)
+├── vim/              # vim 설정 (vimrc)
+├── zsh/              # zsh 설정 (zshrc, p10k, oh-my-zsh)
+└── install.sh        # 통합 설치 스크립트
+```
+
 ## 설치되는 도구들
 
-- zsh: 향상된 쉘
-- git: 버전 관리 시스템
-- curl: URL을 통한 데이터 전송 도구
-- wget: 파일 다운로드 도구
-- autojump: 디렉토리 빠른 이동 도구
-- thefuck: 명령어 오타 교정 도구
+### 시스템 패키지
+- zsh + [Oh My Zsh](https://ohmyz.sh/) + [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- git, curl, wget
+- autojump, thefuck, fzf
+
+### Zsh 플러그인
+- zsh-autosuggestions, zsh-syntax-highlighting, zsh-completions
+- git, docker, kubectl, helm, aws 자동완성
+- 기타: extract, jsontools, colored-man-pages 등
+
+### 심볼릭 링크
+설치 시 아래 파일들이 홈 디렉토리에 심볼릭 링크됩니다:
+
+| 소스 | 대상 |
+|------|------|
+| `vim/vimrc` | `~/.vimrc` |
+| `zsh/zshrc` | `~/.zshrc` |
+| `zsh/p10k.zsh` | `~/.p10k.zsh` |
+| `tmux/tmux.conf` | `~/.tmux.conf` |
+| `claude/` | `~/.claude` |
+
+### Claude Code
+
+`claude/` 디렉토리는 Claude Code의 사용자 설정을 관리합니다:
+- `settings.json` — 전역 설정
+- `scripts/` — 커스텀 스크립트
+- `skills/` — 사용자 스킬
+- `plugins/` — 플러그인 설정 (config만 추적, cache는 제외)
+
+> `.local.env` 등 credential 파일은 `.gitignore`로 제외됩니다.
 
 ## 시스템 요구사항
 
@@ -39,4 +77,4 @@ curl -fsSL https://mino-park7.github.io/dotfiles/etc/install | bash
 
 2. 패키지 설치 실패 시
    - 인터넷 연결을 확인하세요
-   - 패키지 매니저(apt, yum, brew)가 정상 작동하는지 확인하세요 
+   - 패키지 매니저(apt, yum, brew)가 정상 작동하는지 확인하세요
