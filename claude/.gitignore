@@ -1,0 +1,30 @@
+# Ignore everything by default
+*
+
+# Track these files
+!.gitignore
+!settings.json
+
+# Scripts (user scripts)
+!scripts/
+!scripts/**
+
+# Skills (user-installed skills)
+!skills/
+!skills/**
+# Ignore credential files inside skills
+skills/**/.local.env
+
+# Plugins (config only, not cache)
+!plugins/
+!plugins/blocklist.json
+!plugins/installed_plugins.json
+!plugins/known_marketplaces.json
+!plugins/claude-hud/
+!plugins/claude-hud/**
+# Re-ignore plugin caches
+plugins/cache/
+plugins/marketplaces/
+plugins/install-counts-cache.json
+plugins/claude-hud/.usage-cache.json
+plugins/claude-hud/.usage-cache.lock

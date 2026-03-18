@@ -22,6 +22,9 @@ fi
 if [ -f ~/.tmux.conf ]; then
     mv ~/.tmux.conf ~/.tmux.conf.bak.$(date +%Y%m%d%H%M%S)
 fi
+if [ -d ~/.claude ] || [ -f ~/.claude ]; then
+    mv ~/.claude ~/.claude.bak.$(date +%Y%m%d%H%M%S)
+fi
 
 # Install oh-my-zsh
 bash zsh/install-omz.sh
@@ -31,6 +34,7 @@ bash zsh/install-omz.sh
 ln -s ${HOME}/.dotfiles/vim/vimrc ~/.vimrc
 ln -s ${HOME}/.dotfiles/zsh/p10k.zsh ~/.p10k.zsh
 ln -s ${HOME}/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -s ${HOME}/.dotfiles/claude ~/.claude
 
 # Install plugins
 bash plugins/install_plugins.sh

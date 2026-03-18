@@ -1,0 +1,87 @@
+{
+  "env": {
+    "DISABLE_AUTOUPDATER": "1",
+    "ENABLE_TOOL_SEARCH": "true"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(ls:*)",
+      "Bash(pwd:*)",
+      "Bash(which:*)",
+      "Bash(wc:*)",
+      "Bash(file:*)",
+      "Bash(dirname:*)",
+      "Bash(basename:*)",
+      "Bash(realpath:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(diff:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(touch:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote:*)",
+      "Bash(git fetch:*)",
+      "Bash(git stash:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git merge-base:*)",
+      "Bash(git tag:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(uv:*)",
+      "Bash(uv run:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(pytest:*)",
+      "Bash(make:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(node:*)",
+      "Bash(cargo:*)",
+      "Bash(gh:*)",
+      "Bash(which:*)",
+      "Bash(curl:*)",
+      "Read(~/.claude)",
+      "Read(//tmp/**)"
+    ],
+    "defaultMode": "dontAsk"
+  },
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c 'plugin_dir=$(ls -d \"$HOME\"/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | awk -F/ '\"'\"'{ print $(NF-1) \"\\t\" $0 }'\"'\"' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1 | cut -f2-); exec \"/opt/homebrew/bin/node\" \"${plugin_dir}dist/index.js\"'"
+  },
+  "enabledPlugins": {
+    "dx@ykdojo": true,
+    "superpowers@claude-plugins-official": true,
+    "claude-hud@claude-hud": true,
+    "ralph-loop@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
+    }
+  },
+  "language": "English",
+  "skipDangerousModePermissionPrompt": true
+}
