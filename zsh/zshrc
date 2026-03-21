@@ -125,6 +125,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# Claude Code aliases
+alias c='claude'
+alias cs='claude --dangerously-skip-permissions'
+
 [[ ! -f ~/.devconfig ]] || source ~/.devconfig
 # ~/.zshrc — Cursor Agent가 실행될 때 Powerlevel10k 비활성화
 if [[ -n "$CURSOR_AGENT" ]]; then
