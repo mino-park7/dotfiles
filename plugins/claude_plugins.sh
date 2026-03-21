@@ -6,14 +6,6 @@
 
 MARKETPLACE_DIR="${HOME}/.claude/plugins/marketplaces"
 
-# marketplace_name -> github_repo
-declare -A CLAUDE_MARKETPLACES=(
-    ["claude-plugins-official"]="anthropics/claude-plugins-official"
-    ["ykdojo"]="ykdojo/claude-code-tips"
-    ["superpowers-marketplace"]="obra/superpowers-marketplace"
-    ["claude-hud"]="jarrodwatts/claude-hud"
-)
-
 CLAUDE_PLUGINS=(
     "dx@ykdojo"
     "superpowers@superpowers-marketplace"
@@ -21,21 +13,33 @@ CLAUDE_PLUGINS=(
     "ralph-loop@claude-plugins-official"
 )
 
+clone_marketplace() {
+    local name="$1"
+    local repo="$2"
+    local dest="${MARKETPLACE_DIR}/${name}"
+    if [ -d "${dest}" ]; then
+        echo "  이미 존재: ${name}"
+    else
+        echo "  클론 중: ${repo} -> ${name}"
+        git clone "https://github.com/${repo}.git" "${dest}" 2>/dev/null \
+            || echo "  경고: ${name} marketplace 클론 실패"
+    fi
+}
+
 setup_claude_marketplaces() {
     echo "Claude Code marketplace 설정 중..."
     mkdir -p "${MARKETPLACE_DIR}"
 
-    for name in "${!CLAUDE_MARKETPLACES[@]}"; do
-        local repo="${CLAUDE_MARKETPLACES[$name]}"
-        local dest="${MARKETPLACE_DIR}/${name}"
-        if [ -d "${dest}" ]; then
-            echo "  이미 존재: ${name}"
-        else
-            echo "  클론 중: ${repo} -> ${name}"
-            git clone "https://github.com/${repo}.git" "${dest}" 2>/dev/null \
-                || echo "  경고: ${name} marketplace 클론 실패"
-        fi
-    done
+    # Fix hardcoded paths in known_marketplaces.json for current machine
+    local km_file="${HOME}/.claude/plugins/known_marketplaces.json"
+    if [ -f "$km_file" ]; then
+        sed -i.bak "s|/Users/[^/]*/\.claude|${HOME}/.claude|g" "$km_file" && rm -f "${km_file}.bak"
+    fi
+
+    clone_marketplace "claude-plugins-official" "anthropics/claude-plugins-official"
+    clone_marketplace "ykdojo" "ykdojo/claude-code-tips"
+    clone_marketplace "superpowers-marketplace" "obra/superpowers-marketplace"
+    clone_marketplace "claude-hud" "jarrodwatts/claude-hud"
 }
 
 install_claude_plugins() {
