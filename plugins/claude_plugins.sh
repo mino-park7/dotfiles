@@ -40,6 +40,29 @@ setup_claude_marketplaces() {
     clone_marketplace "ykdojo" "ykdojo/claude-code-tips"
     clone_marketplace "superpowers-marketplace" "obra/superpowers-marketplace"
     clone_marketplace "claude-hud" "jarrodwatts/claude-hud"
+
+    # Fix: remove git-subdir source plugins that cause schema validation failure
+    # in current claude CLI versions, preventing the entire marketplace from loading
+    fix_marketplace_schema
+}
+
+fix_marketplace_schema() {
+    local mj="${MARKETPLACE_DIR}/claude-plugins-official/.claude-plugin/marketplace.json"
+    [ -f "$mj" ] || return 0
+    if command -v python3 &> /dev/null; then
+        python3 -c "
+import json, sys
+with open('$mj') as f:
+    data = json.load(f)
+plugins = data.get('plugins', [])
+filtered = [p for p in plugins if not (isinstance(p.get('source',''), dict) and p['source'].get('source') == 'git-subdir')]
+if len(filtered) < len(plugins):
+    data['plugins'] = filtered
+    with open('$mj', 'w') as f:
+        json.dump(data, f, indent=2)
+    print('  marketplace schema 수정: git-subdir 항목 %d개 제거' % (len(plugins) - len(filtered)))
+"
+    fi
 }
 
 install_claude_plugins() {
