@@ -8,6 +8,7 @@ source "${DIR}/zsh_plugins.sh"
 source "${DIR}/vim_plugins.sh"
 source "${DIR}/tmux_plugins.sh"
 source "${DIR}/claude_plugins.sh"
+source "${DIR}/skills_install.sh"
 
 # Install all plugins
 echo "플러그인 설치를 시작합니다..."
@@ -25,6 +26,9 @@ update_tmux_conf
 
 # Install Claude Code plugins
 install_claude_plugins
+
+# Install agent skills from lock file
+install_skills
 
 echo "모든 플러그인 설치 및 설정이 완료되었습니다."
 echo

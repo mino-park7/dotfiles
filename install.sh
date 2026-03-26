@@ -18,6 +18,9 @@ done
 if [ -e ~/.claude ] || [ -L ~/.claude ]; then
     mv ~/.claude ~/.claude.bak.$(date +%Y%m%d%H%M%S)
 fi
+if [ -e ~/.agents/.skill-lock.json ] || [ -L ~/.agents/.skill-lock.json ]; then
+    mv ~/.agents/.skill-lock.json ~/.agents/.skill-lock.json.bak.$(date +%Y%m%d%H%M%S)
+fi
 
 # Install oh-my-zsh
 bash zsh/install-omz.sh
@@ -28,6 +31,8 @@ ln -sf ${HOME}/.dotfiles/vim/vimrc ~/.vimrc
 ln -sf ${HOME}/.dotfiles/zsh/p10k.zsh ~/.p10k.zsh
 ln -sf ${HOME}/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -sfn ${HOME}/.dotfiles/claude ~/.claude
+mkdir -p ~/.agents
+ln -sf ${HOME}/.dotfiles/agents/.skill-lock.json ~/.agents/.skill-lock.json
 
 # Install plugins
 bash plugins/install_plugins.sh
