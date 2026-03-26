@@ -14,10 +14,11 @@ curl -fsSL https://mino-park7.github.io/dotfiles/etc/install | bash
 
 ```
 dotfiles/
+├── agents/           # Agent skills 관리 (.skill-lock.json)
 ├── aliases/          # 커스텀 쉘 별칭
 ├── claude/           # Claude Code 설정 (settings, skills, plugins)
 ├── packages/         # 시스템 패키지 설치 스크립트
-├── plugins/          # zsh/vim/tmux 플러그인 설치
+├── plugins/          # zsh/vim/tmux/skills 플러그인 설치
 ├── tmux/             # tmux 설정 (tmux.conf)
 ├── vim/              # vim 설정 (vimrc)
 ├── zsh/              # zsh 설정 (zshrc, p10k, oh-my-zsh)
@@ -46,16 +47,24 @@ dotfiles/
 | `zsh/p10k.zsh` | `~/.p10k.zsh` |
 | `tmux/tmux.conf` | `~/.tmux.conf` |
 | `claude/` | `~/.claude` |
+| `agents/.skill-lock.json` | `~/.agents/.skill-lock.json` |
 
 ### Claude Code
 
 `claude/` 디렉토리는 Claude Code의 사용자 설정을 관리합니다:
 - `settings.json` — 전역 설정
 - `scripts/` — 커스텀 스크립트
-- `skills/` — 사용자 스킬
+- `skills/` — 사용자 스킬 (네이티브 + `~/.agents/skills/` symlink)
 - `plugins/` — 플러그인 설정 (config만 추적, cache는 제외)
 
 > `.local.env` 등 credential 파일은 `.gitignore`로 제외됩니다.
+
+### Agent Skills
+
+`agents/` 디렉토리는 [npx skills](https://skills.sh/)로 설치한 스킬을 관리합니다:
+- `.skill-lock.json` — 설치된 스킬 목록 (lock file)
+- 설치 시 `npx skills experimental_install`로 스킬을 자동 복원합니다
+- Node.js가 없으면 OS에 맞게 자동 설치를 시도합니다
 
 ## 시스템 요구사항
 
